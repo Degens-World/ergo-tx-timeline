@@ -2,9 +2,7 @@
 
 ## Live Demo
 
-**[https://ad-ergo-tx-timeline-1775098127807.vercel.app](https://ad-ergo-tx-timeline-1775098127807.vercel.app)**
-
-> Visualize your Ergo wallet's complete transaction history as an interactive balance chart and chronological timeline.
+**[https://ad-ergo-tx-timeline-1775099432899.vercel.app](https://ad-ergo-tx-timeline-1775099432899.vercel.app)**
 
 ## Features
 
