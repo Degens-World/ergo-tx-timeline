@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ergo TX Timeline</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="stars" id="stars"></div>
+
+  <header>
+    <div class="logo">
+      <span class="logo-icon">⏳</span>
+      <h1>Ergo TX Timeline</h1>
+    </div>
+    <p class="tagline">Visualize your wallet's journey through the Ergo blockchain</p>
+  </header>
+
+  <main>
+    <section class="search-section">
+      <div class="search-box">
+        <input
+          type="text"
+          id="addressInput"
+          placeholder="Enter Ergo wallet address (9...)"
+          autocomplete="off"
+          spellcheck="false"
+        />
+        <button id="analyzeBtn">Analyze</button>
+      </div>
+      <div id="errorMsg" class="error-msg hidden"></div>
+    </section>
+
+    <section id="results" class="hidden">
+      <div class="stats-bar">
+        <div class="stat-card">
+          <div class="stat-label">Current Balance</div>
+          <div class="stat-value" id="statBalance">—</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Total Received</div>
+          <div class="stat-value green" id="statReceived">—</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Total Sent</div>
+          <div class="stat-value red" id="statSent">—</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Transactions</div>
+          <div class="stat-value" id="statTxCount">—</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Active Since</div>
+          <div class="stat-value" id="statSince">—</div>
+        </div>
+      </div>
+
+      <div class="chart-container">
+        <div class="chart-header">
+          <h2>Balance Over Time</h2>
+          <div class="chart-controls">
+            <button class="range-btn active" data-range="all">All</button>
+            <button class="range-btn" data-range="90">90d</button>
+            <button class="range-btn" data-range="30">30d</button>
+          </div>
+        </div>
+        <canvas id="balanceChart"></canvas>
+      </div>
+
+      <div class="timeline-section">
+        <h2>Transaction Timeline</h2>
+        <div id="timeline" class="timeline"></div>
+        <button id="loadMoreBtn" class="load-more hidden">Load More</button>
+      </div>
+    </section>
+
+    <section id="loadingSection" class="loading-section hidden">
+      <div class="spinner"></div>
+      <p id="loadingMsg">Fetching transaction history...</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Data via <a href="https://api.ergoplatform.com" target="_blank">Ergo Explorer API</a> · Built for Degens.World</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
